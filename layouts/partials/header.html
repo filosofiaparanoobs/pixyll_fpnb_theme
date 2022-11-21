@@ -1,7 +1,13 @@
 <header class="site-header px2 px-responsive">
   <div class="mt2 wrap">
     <div class="measure">
-      <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}" class="site-title">{{ .Site.Title }}</a>
+      <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}" class="site-title">
+        {{ if isset .Site.Params "logo" }}
+        <img src="/uploads/fpn_logo.png" style="width:auto;height:3rem;">
+        {{ else }}
+        {{ .Site.Title }}
+        {{ end }}
+        </a>
       <nav class="site-nav right">
       {{ partial "navigation.html" . }}
       </nav>
